@@ -1,0 +1,7 @@
+# 2026-10-20T10:49:59Z — provisioning Zerobus ingest service principal (CLI)
+created SP id=78227860470525
+application_id=3663de8f-6de6-4c10-adf5-5ba7946eefed
+oauth secret created (value not logged, length 36)
+stored secret pharmaco_mfg_rt_demo/sp_oauth_secret
+stored secret pharmaco_mfg_rt_demo/sp_client_id
+scope keys: ['sp_client_id', 'sp_oauth_secret']

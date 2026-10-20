@@ -1,0 +1,50 @@
+command:
+  - "python"
+  - "-m"
+  - "uvicorn"
+  - "app:app"
+  - "--host"
+  - "0.0.0.0"
+  - "--port"
+  - "8000"
+
+env:
+  # Unity Catalog namespace
+  - name: DEMO_CATALOG
+    value: hls_streaming_solution_demo_catalog
+  - name: DEMO_BRONZE
+    value: pharmaco_mfg_rt_bronze
+  - name: DEMO_SILVER
+    value: pharmaco_mfg_rt_silver
+  - name: DEMO_GOLD
+    value: pharmaco_mfg_rt_gold
+  - name: PG_SCHEMA
+    value: pharmaco_mfg_rt
+  - name: BRONZE_TABLE
+    value: telemetry_raw
+  # SQL warehouse for Delta reads (telemetry history / metrics)
+  - name: DBX_WAREHOUSE_ID
+    value: 1b3fb1ab4eaa9511
+  # Zerobus Ingest (in-app synthetic generator)
+  - name: ZB_ENDPOINT
+    value: https://7474651570340482.zerobus.us-east-1.cloud.databricks.com
+  - name: ZB_CLIENT_ID
+    value: 3663de8f-6de6-4c10-adf5-5ba7946eefed
+  - name: ZB_CLIENT_SECRET
+    valueFrom: sp-oauth-secret
+  - name: LAKEBASE_INSTANCE
+    value: pharmaco-mfg-rt-demo-lb
+  # Streaming job id (observability panel)
+  - name: STREAMING_JOB_ID
+    value: "1012398663888207"
+  # Genie space (natural-language Q&A over the demo data)
+  - name: GENIE_SPACE_ID
+    value: "01f1cc7fa00816ba81cd394475f36651"
+  # Fix Assistant: SOP-grounded remediation + multi-agent supervisor
+  - name: ASSISTANT_LLM_ENDPOINT
+    value: databricks-claude-sonnet-4-5
+  - name: SOP_VS_INDEX
+    value: hls_streaming_solution_demo_catalog.pharmaco_mfg_rt_knowledge.sop_index
+  # Managed Agent Bricks Multi-Agent Supervisor (blank => built-in code supervisor)
+  - name: SUPERVISOR_ENDPOINT
+    value: "mas-ed49a452-endpoint"

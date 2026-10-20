@@ -1,0 +1,31 @@
+{
+  "name": "${STREAMING_JOB_NAME}",
+  "max_concurrent_runs": 1,
+  "queue": { "enabled": true },
+  "schedule": {
+    "pause_status": "UNPAUSED",
+    "quartz_cron_expression": "0 * * * * ?",
+    "timezone_id": "UTC"
+  },
+  "tasks": [
+    {
+      "task_key": "pipeline",
+      "run_if": "ALL_SUCCESS",
+      "timeout_seconds": 0,
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/${APP_USER_EMAIL}/pharmaco_mfg_rt_demo/pipeline/rt_pipeline",
+        "source": "WORKSPACE",
+        "base_parameters": {
+          "catalog": "${DEMO_CATALOG}",
+          "bronze": "${DEMO_BRONZE}",
+          "silver": "${DEMO_SILVER}",
+          "gold": "${DEMO_GOLD}",
+          "checkpoint": "${CHECKPOINT_VOLUME}",
+          "mode": "once",
+          "window_minutes": "3",
+          "lakebase_sync": "false"
+        }
+      }
+    }
+  ]
+}

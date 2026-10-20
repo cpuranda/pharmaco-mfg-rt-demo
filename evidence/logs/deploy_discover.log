@@ -1,0 +1,8 @@
+
+>> discover ids created by the notebooks (Genie space, agents, operational job, Lakebase)
+GENIE_SPACE_ID=01f1cc7fa00816ba81cd394475f36651
+STREAMING_JOB_ID=1012398663888207
+LAKEBASE_DNS=ep-steep-wildflower-d23qtgpw.database.us-east-1.cloud.databricks.com
+KA_ENDPOINT=ka-aaab91b9-endpoint
+SUPERVISOR_ENDPOINT=mas-ed49a452-endpoint
+   ✓ state saved to /Users/chandrashekhar.purandare/code/pharmaco-mfg-rt-demo/deploy/.deploy.state.env

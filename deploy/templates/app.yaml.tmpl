@@ -1,0 +1,50 @@
+command:
+  - "python"
+  - "-m"
+  - "uvicorn"
+  - "app:app"
+  - "--host"
+  - "0.0.0.0"
+  - "--port"
+  - "8000"
+
+env:
+  # Unity Catalog namespace
+  - name: DEMO_CATALOG
+    value: ${DEMO_CATALOG}
+  - name: DEMO_BRONZE
+    value: ${DEMO_BRONZE}
+  - name: DEMO_SILVER
+    value: ${DEMO_SILVER}
+  - name: DEMO_GOLD
+    value: ${DEMO_GOLD}
+  - name: PG_SCHEMA
+    value: ${LAKEBASE_APP_DB}
+  - name: BRONZE_TABLE
+    value: ${BRONZE_TABLE}
+  # SQL warehouse for Delta reads (telemetry history / metrics)
+  - name: DBX_WAREHOUSE_ID
+    value: ${DBX_WAREHOUSE_ID}
+  # Zerobus Ingest (in-app synthetic generator)
+  - name: ZB_ENDPOINT
+    value: ${ZB_ENDPOINT}
+  - name: ZB_CLIENT_ID
+    value: ${ZB_CLIENT_ID}
+  - name: ZB_CLIENT_SECRET
+    valueFrom: sp-oauth-secret
+  - name: LAKEBASE_INSTANCE
+    value: ${LAKEBASE_INSTANCE}
+  # Streaming job id (observability panel)
+  - name: STREAMING_JOB_ID
+    value: "${STREAMING_JOB_ID}"
+  # Genie space (natural-language Q&A over the demo data)
+  - name: GENIE_SPACE_ID
+    value: "${GENIE_SPACE_ID}"
+  # Fix Assistant: SOP-grounded remediation + multi-agent supervisor
+  - name: ASSISTANT_LLM_ENDPOINT
+    value: ${ASSISTANT_LLM_ENDPOINT}
+  - name: SOP_VS_INDEX
+    value: ${DEMO_CATALOG}.${DEMO_KNOWLEDGE_SCHEMA}.sop_index
+  # Managed Agent Bricks Multi-Agent Supervisor (blank => built-in code supervisor)
+  - name: SUPERVISOR_ENDPOINT
+    value: "${SUPERVISOR_ENDPOINT}"

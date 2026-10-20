@@ -1,0 +1,10 @@
+
+>> grants to the app service principal
+   ✓ UC grants applied
+   ✓ VS endpoint CAN_USE granted
+databricks-claude-sonnet-4-5: system endpoint (usually queryable; bound as app resource)
+ka-aaab91b9-endpoint CAN_QUERY granted
+mas-ed49a452-endpoint CAN_QUERY granted
+   ✓ endpoint grants applied
+Lakebase grants applied to "b6a9206b-e130-42c5-8386-40b08a8eb73f"
+   ✓ Lakebase grants applied

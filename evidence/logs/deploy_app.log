@@ -1,0 +1,9 @@
+
+>> app.yaml + app deploy
+   ✓ app/app.yaml generated
+resources: ['lakebase', 'sp-oauth-secret', 'assistant-llm', 'genie-space', 'mas-supervisor', 'sop-ka', 'sql-warehouse', 'operational-job']
+   ✓ app resources bound
+   ✓ frontend built
+   ✓ source synced
+   ✓ app deployed
+   ✓ app SP b6a9206b-e130-42c5-8386-40b08a8eb73f  |  https://pharmaco-mfg-rt-demo-7474651570340482.aws.databricksapps.com

@@ -1,0 +1,79 @@
+acceptance run 2026-10-20T13:52:48+00:00  profile=fe-vm-hls-streaming-solution-demo
+
+=== DATA LAYER ===
+[PASS] table pharmaco_mfg_rt_bronze.telemetry_raw exists
+[PASS] table pharmaco_mfg_rt_bronze.ingest_health exists
+[PASS] table pharmaco_mfg_rt_silver.telemetry_clean exists
+[PASS] table pharmaco_mfg_rt_silver.telemetry_quarantine exists
+[PASS] table pharmaco_mfg_rt_gold.asset_current_state exists
+[PASS] table pharmaco_mfg_rt_gold.asset_anomaly_events exists
+[PASS] table pharmaco_mfg_rt_gold.active_alerts exists
+[PASS] table pharmaco_mfg_rt_gold.line_health_summary exists
+[PASS] table pharmaco_mfg_rt_gold.telemetry_quality_metrics exists
+[PASS] bronze has telemetry  (121493 rows)
+[PASS] bronze ingested via zerobus  (ingest_source zerobus*)
+[PASS] silver has clean telemetry  (121380 rows)
+[PASS] silver dedup (no duplicate source_event_id)  (0 dup keys)
+[PASS] quarantine table queryable  (8 rows)
+[PASS] gold current state populated  (15 assets)
+[PASS] gold line health populated  (3 lines)
+[PASS] active alerts generated  (2 alerts)
+[PASS] anomaly/threshold events recorded  (2 events)
+[PASS] anomaly events include reason text  (2 with reason)
+
+=== GENERATOR DETERMINISM ===
+[PASS] deterministic replay (same seed -> same event_ids)  (840 events)
+
+=== APP API (https://pharmaco-mfg-rt-demo-7474651570340482.aws.databricksapps.com) ===
+      GET /health -> 200 in 1481 ms
+[PASS] GET /health 200
+      GET /ready -> 200 in 1135 ms
+[PASS] GET /ready (Lakebase reachable)  (ready)
+      GET /api/plant/summary -> 200 in 1200 ms
+[PASS] GET /api/plant/summary  (plant=CRITICAL assets=15 criticals=2)
+      GET /api/lines -> 200 in 1106 ms
+[PASS] GET /api/lines == 3  (LINE-A=HEALTHY, LINE-B=CRITICAL, LINE-C=HEALTHY)
+      GET /api/assets/A-COMPRESS -> 200 in 1234 ms
+[PASS] GET /api/assets/A-COMPRESS (rule state + ML score from Lakebase)  (condition=HEALTHY ml_score=0.1224 ml_top_sensor=temperature)
+      GET /api/ml/scores -> 200 in 1189 ms
+[PASS] GET /api/ml/scores (15 assets)  (top=B-FILL:1.0)
+      GET /api/observability/metrics -> 200 in 4991 ms
+[PASS] GET /api/observability/metrics
+      GET /api/alerts?limit=20 -> 200 in 1240 ms
+[PASS] GET /api/alerts  (2 alerts)
+      POST /api/alerts/adf1314330df98d953942145be319388524cb51554ab397b673af9967d276355/acknowledge -> 200 in 1151 ms
+[PASS] POST acknowledge -> ACKNOWLEDGED (Lakebase transaction)  (B-FILL vibration by app-acceptance-test)
+      GET /api/alerts/adf1314330df98d953942145be319388524cb51554ab397b673af9967d276355/history -> 200 in 1119 ms
+[PASS] GET alert history has the acknowledgement  (1 audit entries)
+      POST /api/assistant/explain-fix -> 200 in 7854 ms
+[PASS] POST /api/assistant/explain-fix (SOP-grounded, cited)  (citations=['SOP-VIB-021', 'SOP-MTR-007'])
+      --- Explain & Fix answer (first 600 chars) ---
+      **Assessment:** Aseptic filler B-FILL vibration is 33% above CRITICAL threshold (6.0 vs. 4.5 mm/s) with rising trend—high priority due to sterility risk.
+      
+      **Immediate actions** [SOP-VIB-021]:
+      1. Correlate vibration with motor current—simultaneous rise indicates bearing friction rather than sensor fault
+      2. Reduce speed to minimum validated rate and observe if vibration falls; if it persists, plan orderly stop
+      3. Inspect bearing temperature and listen for characteristic bearing noise
+      4. Check mounting bolts, coupling alignment, and rotor balance
+      5. **Verify no impact to fill integrity; if steril
+      POST /api/genie/ask -> 200 in 16885 ms
+[PASS] POST /api/genie/ask (Genie space)  (sql=yes rows=1)
+      Genie SQL: SELECT `site_id`, `plant_id`, `line_id`, `product_family`, `updated_ts`, `health_status`, `throughput_pct`, `open_warnings`, `open_criticals`, `is_slowing_down`, `slowdown_hint` FROM `hls_streaming_solution_demo_catalog`.`pharmaco_mfg_rt_gold`.`line_health_summary` WHERE `line_id` IS NOT NULL AND `health_status` IS NOT NULL AND `health_status` IN ('WATCH', 'DEGRADED', 'CRITICAL') ORDER BY CASE `he
+      POST /api/assistant/ask -> 200 in 122124 ms
+[PASS] POST /api/assistant/ask (Agent Bricks supervisor)  (route=managed-supervisor tools=['genie_data', 'genie_data', 'sop_ka'])
+      --- Supervisor answer (first 800 chars) ---
+      ## LINE-A Status and Recommended Actions
+      
+      **Current Situation:**
+      LINE-A is showing **HEALTHY** overall status, but the worst-performing asset is **A-GRANULATE (granulator)** in **WATCH** condition. The granulator is currently running with:
+      - Temperature: 65.1°C (nominal)
+      - Vibration: 1.69 mm/s (nominal range: 0.5–4.5 mm/s)
+      - Pressure: 4.5 bar (nominal)
+      - Motor current: 29.3A (nominal range: 18–42A per SOP-MTR-007)
+      - Speed: 1197 rpm (stable)
+      - Anomaly score: 0.014 (very low)
+      
+      **Root Cause:**
+      All sensor readings are within normal operating bands. The WATCH condition appears to be precautionary based on the anomaly detection system, but there are no active alerts or critical issues. The ML anomaly detector flagged temperature as the top sensor of interest, though the anomaly score (0.10) is b
+
+==== 33/33 checks passed ====

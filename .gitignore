@@ -1,0 +1,18 @@
+# local environments / caches
+.venv*/
+__pycache__/
+*.pyc
+.DS_Store
+.databricks/
+
+# frontend build inputs/outputs (rebuilt by deploy)
+app/frontend/node_modules/
+app/frontend/dist/
+*.tsbuildinfo
+
+# deploy-time discovered state (workspace-specific ids)
+deploy/.deploy.state.env
+
+# never commit secrets
+*.secret
+.env.local

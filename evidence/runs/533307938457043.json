@@ -1,0 +1,16 @@
+{
+ "run_id": 533307938457043,
+ "run_name": "pharmaco_mfg_rt_e2e_build [11]",
+ "result_state": "SUCCESS",
+ "run_page_url": "https://fevm-hls-streaming-solution-demo.cloud.databricks.com/?o=7474651570340482#job/13522395184994/run/533307938457043",
+ "start_time": "2026-10-20T13:56:02.045000+00:00",
+ "tasks": [
+  {
+   "task_key": "11_end",
+   "task_run_id": 22514294817370,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/11_end_to_end_validation",
+   "result_state": "SUCCESS",
+   "duration_s": 110
+  }
+ ]
+}

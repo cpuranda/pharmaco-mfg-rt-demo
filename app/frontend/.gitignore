@@ -1,0 +1,5 @@
+node_modules/
+*.local
+.DS_Store
+.vite/
+# dist/ intentionally NOT ignored: it is deployed with the Databricks App

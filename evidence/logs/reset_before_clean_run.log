@@ -1,0 +1,7 @@
+deleted LDP pipeline 117e9d41-a6d2-42a2-b00a-c0bf6cea9326
+drop schema pharmaco_mfg_rt_bronze: SUCCEEDED
+drop schema pharmaco_mfg_rt_silver: SUCCEEDED
+drop schema pharmaco_mfg_rt_gold: SUCCEEDED
+drop schema pharmaco_mfg_rt_ldp: SUCCEEDED
+dropped Lakebase schema pharmaco_mfg_rt
+data layers reset

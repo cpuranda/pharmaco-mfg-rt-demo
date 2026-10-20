@@ -1,0 +1,6 @@
+# Zerobus Ingest driver dependencies (pinned for protobuf gencode/runtime match).
+databricks-zerobus-ingest-sdk==1.4.0
+protobuf==5.29.5
+# Only needed to (re)compile telemetry.proto -> telemetry_pb2.py:
+#   python -m grpc_tools.protoc --python_out=ingest --proto_path=ingest ingest/telemetry.proto
+grpcio-tools==1.68.1

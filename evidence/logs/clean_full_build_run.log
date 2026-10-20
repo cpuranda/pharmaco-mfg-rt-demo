@@ -1,0 +1,105 @@
+syncing repo -> /Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo
+submitted job run 24808449534624
+  18:54:38 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'BLOCKED', '04_lakeflow': 'BLOCKED', '01_uc': 'PENDING', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'BLOCKED', '02_ingest': 'BLOCKED', '09_agent': 'BLOCKED'}
+  18:54:59 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'BLOCKED', '04_lakeflow': 'BLOCKED', '01_uc': 'RUNNING', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'BLOCKED', '02_ingest': 'BLOCKED', '09_agent': 'BLOCKED'}
+  18:56:20 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'BLOCKED', '04_lakeflow': 'BLOCKED', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'BLOCKED', '02_ingest': 'RUNNING', '09_agent': 'BLOCKED'}
+  19:01:05 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'BLOCKED', '04_lakeflow': 'BLOCKED', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'RUNNING', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:02:27 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'BLOCKED', '04_lakeflow': 'RUNNING', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:04:29 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'PENDING', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:04:49 {'08_genie': 'BLOCKED', '06_ml': 'BLOCKED', '05_lakebase': 'RUNNING', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:05:50 {'08_genie': 'BLOCKED', '06_ml': 'RUNNING', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'BLOCKED', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:07:52 {'08_genie': 'BLOCKED', '06_ml': 'SUCCESS', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'RUNNING', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:08:53 {'08_genie': 'RUNNING', '06_ml': 'SUCCESS', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'SUCCESS', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'BLOCKED'}
+  19:10:35 {'08_genie': 'SUCCESS', '06_ml': 'SUCCESS', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'SUCCESS', '10_operational': 'BLOCKED', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'RUNNING'}
+  19:14:19 {'08_genie': 'SUCCESS', '06_ml': 'SUCCESS', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'SUCCESS', '10_operational': 'RUNNING', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'SUCCESS'}
+  19:21:06 {'08_genie': 'SUCCESS', '06_ml': 'SUCCESS', '05_lakebase': 'SUCCESS', '04_lakeflow': 'SUCCESS', '01_uc': 'SUCCESS', '07_genai': 'SUCCESS', '10_operational': 'SUCCESS', '03_streaming': 'SUCCESS', '02_ingest': 'SUCCESS', '09_agent': 'SUCCESS'}
+run 24808449534624: SUCCESS  https://fevm-hls-streaming-solution-demo.cloud.databricks.com/?o=7474651570340482#job/495724297175905/run/24808449534624
+  exported 01_uc_setup_and_governance (9 cells)
+  exported 02_ingest_zerobus (14 cells)
+  exported 03_streaming_medallion_pipeline (10 cells)
+  exported 04_lakeflow_declarative_pipeline (10 cells)
+  exported 05_lakebase_operational_serving (10 cells)
+  exported 06_ml_anomaly_model (10 cells)
+  exported 07_genai_sop_fix_assistant (8 cells)
+  exported 08_genie_space (6 cells)
+  exported 09_agent_bricks_supervisor (8 cells)
+  exported 10_operational_lakeflow_job (7 cells)
+{
+ "run_id": 24808449534624,
+ "run_name": "pharmaco_mfg_rt_e2e_build [01 02 03 04 05 06 07 08 09 10]",
+ "result_state": "SUCCESS",
+ "run_page_url": "https://fevm-hls-streaming-solution-demo.cloud.databricks.com/?o=7474651570340482#job/495724297175905/run/24808449534624",
+ "start_time": "2026-10-20T13:24:38.332000+00:00",
+ "tasks": [
+  {
+   "task_key": "01_uc",
+   "task_run_id": 475620826123141,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/01_uc_setup_and_governance",
+   "result_state": "SUCCESS",
+   "duration_s": 91
+  },
+  {
+   "task_key": "02_ingest",
+   "task_run_id": 777130905509757,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/02_ingest_zerobus",
+   "result_state": "SUCCESS",
+   "duration_s": 284
+  },
+  {
+   "task_key": "03_streaming",
+   "task_run_id": 164380550435414,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/03_streaming_medallion_pipeline",
+   "result_state": "SUCCESS",
+   "duration_s": 79
+  },
+  {
+   "task_key": "04_lakeflow",
+   "task_run_id": 142563862331698,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/04_lakeflow_declarative_pipeline",
+   "result_state": "SUCCESS",
+   "duration_s": 133
+  },
+  {
+   "task_key": "05_lakebase",
+   "task_run_id": 358974856401335,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/05_lakebase_operational_serving",
+   "result_state": "SUCCESS",
+   "duration_s": 79
+  },
+  {
+   "task_key": "06_ml",
+   "task_run_id": 834583285418978,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/06_ml_anomaly_model",
+   "result_state": "SUCCESS",
+   "duration_s": 110
+  },
+  {
+   "task_key": "07_genai",
+   "task_run_id": 947940513291639,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/07_genai_sop_fix_assistant",
+   "result_state": "SUCCESS",
+   "duration_s": 74
+  },
+  {
+   "task_key": "08_genie",
+   "task_run_id": 992916949961813,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/08_genie_space",
+   "result_state": "SUCCESS",
+   "duration_s": 91
+  },
+  {
+   "task_key": "09_agent",
+   "task_run_id": 677044482310115,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/09_agent_bricks_supervisor",
+   "result_state": "SUCCESS",
+   "duration_s": 228
+  },
+  {
+   "task_key": "10_operational",
+   "task_run_id": 315227353714749,
+   "notebook": "/Workspace/Users/chandrashekhar.purandare@databricks.com/pharmaco_mfg_rt_demo/notebooks/10_operational_lakeflow_job",
+   "result_state": "SUCCESS",
+   "duration_s": 408
+  }
+ ]
+}
